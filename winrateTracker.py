@@ -1,3 +1,6 @@
+"""
+Written by Sebastian
+"""
 import time
 import json
 from pprint import pprint

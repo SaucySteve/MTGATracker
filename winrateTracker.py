@@ -12,35 +12,27 @@ class tracker:
             var=input("Did you win? \n y/n: ")
             if var=='y':
                 self.gamemode='ladderPlayWin'
-                self.winrate()
             elif var=='n':
                 self.gamemode='ladderPlayLoss'
-                self.winrate()
         elif gamemode_input == '2':
             var=input("Did you win? \n y/n: ")
             if var=='y':
                 self.gamemode='ladderCompetitiveWin'
-                self.winrate()
             elif var=='n':
                 self.gamemode='ladderCompetitiveLoss'
-                self.winrate()
         elif gamemode_input == '3':
             var=input("Did you win? \n y/n: ")
             if var=='y':
                 self.gamemode='constructedWin'
-                self.winrate()
             elif var=='n':
                 self.gamemode='constructedLoss'
-                self.winrate()
-
         elif gamemode_input == '4':
             var=input("Did you win? \n y/n: ")
             if var=='y':
                 self.gamemode='competitiveConstructedWin'
-                self.winrate()
             elif var=='n':
                 self.gamemode='competitiveConstructedLoss'
-                self.winrate()
+        self.winrate()
 
 
         

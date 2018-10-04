@@ -1,14 +1,12 @@
 """
-Written by Sebastian
+Written by Sebastian Ovenden
 """
 import time
 import json
 from pprint import pprint
-
+from tkinter import Tk, Label, Button
 class tracker:
-    def gamemode(self):
-        self.listOfGamemodes=['ladderPlayWin','ladderPlayLoss','ladderCompetitiveWin','ladderCompetitiveLoss','constructedWin','constructedLoss','competitiveConstructedWin','competitiveConstructedLoss']
-        gamemode_input = input("What gamemode were you playing? \n 1.Ladder Play \n 2.Ladder Competitive Play \n 3.Constructed \n 4.Competitive Constructed \n")
+    def gamemode(self, gamemode_input):
         if gamemode_input == '1':
             var=input("Did you win? \n y/n: ")
             if var=='y':
@@ -56,6 +54,36 @@ class tracker:
                 json.dump(data1,x)
         else:
             print("Keep up the grind")
+    def PrintScore(self):
+        with open('text.json','r') as var:
+            data = json.load(var)
+            for x in data:
+                print(x,end=': ')
+                pprint(data[x])
+
+class myFirstGUI:
+    def __init__(self, master):
+        self.master = master
+        master.title("MTGA  Winrate Tracker")
+        self.label = Label(master, text="What gamemode were you playing?")
+        self.label.pack()
+
+        self.ladderPlay=Button(master, text="Standard Ladder", command=self.findGamemode(1))
+        self.ladderPlay.pack()
+        self.ladderCompetitive=Button(master, text="Competitive Ladder", command=self.findGamemode(2))
+        self.ladderCompetitive.pack()
+        self.constructedWin=Button(master, text="Constructed Event", command=self.findGamemode(3))
+        self.constructedWin.pack()
+        self.constructedCompetitive=Button(master, text="Competitive Event", command=self.findGamemode(4))
+        self.constructedCompetitive.pack()
+    def findGamemode(self, var):
+        c.gamemode(var)
+
+        
+        
+        
+            
+        
 
 
                 
@@ -63,7 +91,10 @@ class tracker:
 
             
         
-
 c=tracker()
-c.gamemode()
-c.clearScore()
+root = Tk()
+y=myFirstGUI(root)
+c.gamemode(var)
+root.mainloop()
+
+
